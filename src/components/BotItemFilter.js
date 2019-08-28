@@ -7,12 +7,11 @@ const BotItem = props => {
   
     return (
       <article className="BotItem">
-        <div className="numbercontainer">{props.idx}.</div>
+        <div>{props.idx}.</div>
         <div><img src={picUrl + props.botData.image} alt={props.botData.name} className="Botimg" /></div>
-        <div><h2>{props.botData.name}</h2>
-        <p className="desktopcateg">{props.botData.name}</p></div>
+        <div><h2>{props.botData.name}</h2></div>
         <div><h2>{props.botData.score}</h2></div>
-        <div className="starcontainer"><input type="checkbox" className="star" /></div>
+        <div><input type="checkbox" className="star" /></div>
       </article>
     );
   }
