@@ -57,7 +57,7 @@ const App = props => {
         isLoading={isLoading}
         categories={categories}
       />
-      {isLoading ? <div>...loading</div> : <div>{data.id}</div>}
+      {isLoading ? <p className="loading">...loading</p> : <div>{data.id}</div>}
 
      {/*  {hasError ? console.log({ hasError }) : console.log(hasError)} */}
     </div>

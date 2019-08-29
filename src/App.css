@@ -196,7 +196,7 @@ transform: rotate(180deg);
 @media only screen and (min-width: 768px)  {
 
 .App {
-max-width: 90w;
+max-width: 100wv;
 display: flex;
 flex-direction: column;
 justify-content: left;
@@ -206,7 +206,6 @@ align-items: left;
 display: flex;
 flex-direction: row-reverse;
 justify-content: space-between;
-align-items: left;
 height: 140px;
 }
 
@@ -227,12 +226,11 @@ align-items:center;
 }
 
 input[type="text"]{
-min-width: 80vw;
+min-width: 70vw;
 }
 
 .Searchbar{
-width: 70vw;
-max-width: 70vw;
+width: 850px;
 border-radius: 3px;
 position: relative;
 top:-30px;
@@ -241,7 +239,7 @@ top:-30px;
 .categorybar{ 
 display:flex;
 flex-direction: row;
-justify-content: center;
+justify-content: space-evenly;
 align-items: center;
 margin: 0;
 padding-bottom:5px;
@@ -250,6 +248,7 @@ padding-bottom:5px;
 display: flex;
 flex-direction: row;
 align-self: center;
+justify-content: center;
 padding:0;
 margin: 0; 
 color: white;
@@ -257,22 +256,34 @@ font-size: 0.8rem;
 }
 
 .filterbar{
-width: 100vw;
+width: 50vw;
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 align-content: center;
-color: #f4f6fa;
-font-size: 0.8rem;
-
+}
+.filterbar p {
+    padding: 0;
+    margin: 0;
+    color: #f4f6fa;
+    font-size: 0.8rem;
+}
+.botwhite{
+    background: #f4f6fa;
+    width: 100vw;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    height: 100vw;
 }
 .botbar {
-width: 100vw;
+width: 50vw;
 display: flex;
-justify-content: space-around;
-align-content: baseline;
+justify-content: center;
+align-content: center;
 background-color: #f4f6fa;
 margin: 0;
-padding: 0.1rem 2.5rem 0 1.5rem;
+padding: 0;
 font-size: 0.9rem;
 color: #5D5E5E;
 }
@@ -287,8 +298,8 @@ background: #f4f6fa;
 }
 
 section {
-max-width: 70%;
-min-width: 70%;
+max-width: 850px;
+min-width: 850px;
 }
 
 .BotItem {
@@ -332,7 +343,7 @@ right: 35px;
 .starcontainer{
 position: relative;
 top:-45%;
-left: 4.9vw;
+left: 48px;
 }
 
 .star{ 

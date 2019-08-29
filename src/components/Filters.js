@@ -1,10 +1,10 @@
 import React, { useState, useReducer } from 'react';
 import search from '../img/search.svg';
 import BotItem from './BotItem';
-import { async } from 'q';
+//import BotItemFilter from './BotItemFilter';
 
 const Filters = props => {
-
+    let content = <p className="loading">Loading bots...</p>;
     const [filteredSearchData, setFilteredSearchData] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
     const [showFilter, setShowFilter] = useState(true);
@@ -60,42 +60,27 @@ const Filters = props => {
         }
     }, []);
 
+    function handleCategoryChange(e) {
+        categoryToggle(e);
+        setIsFiltered(true);
+    }
+
+
     //Filter the bot with categories
     const [categoryFilteredData, setCategoryFilteredData] = useState([]);
-    async function handleCategoryChange(e) {
-        await categoryToggle(e);
+    let botData = props.botData;
+    
+    //let theBotsThatNeedToBeDisplayed = botData.categories.map().filter()
 
-        let botData = props.botData;
 
-        //Think a bit more here
-        if (myActiveFilter.length !== 0) {
-            // if (myActiveFilter.length <1) {
-
-            console.log(myActiveFilter);
-
-            await setCategoryFilteredData(
-                botData.filter((botData) => {
-                    //  return botData.categories.toLowerCase().match(myActiveFilter.toLowerCase())
-                })
-            )
-
-            await setIsFiltered(true);
-        }
-        else {
-            setIsFiltered(false);
-        }
-    }
+    ////Favorites
 
     //sort botName
-    const handleSortName = (e) => {
-
-    }
+    const handleSortName = (e) => { }
     //sort botName
-    const handleSortScore = (e) => {
+    const handleSortScore = (e) => { 
+}
 
-    }
-
-    let content = <p>Loading bots...</p>;
     if (!props.isLoading) {
 
         content = (
@@ -145,31 +130,39 @@ const Filters = props => {
                         )}
                 </div>
 
+                <div className="botwhite">
+                    <div className="botbar">
+                        <p onChange={handleSortName}>Name{' '}
+                            <input type="checkbox" className="triangledark" /></p>
+                        <p onChange={handleSortScore}>Score{' '}
+                            <input type="checkbox" className="triangledark" /></p>
+                    </div>
 
-                <div className="botbar">
-                    <p onChange={handleSortName}>Name{' '}
-                        <input type="checkbox" className="triangledark" /></p>
-                    <p onChange={handleSortScore}>Score{' '}
-                        <input type="checkbox" className="triangledark" /></p>
-                </div>
 
-                <div className="BotList">
-                    <section>
-                        {
-                            isFiltered ?
-                                /* 
-                                filteredSearchData.map((bot, idx) =>
-                                <BotItem key={idx} filteredSearchData={bot} idx={idx + 1} />)
-                                */
-                               
-                                //console.log(filteredSearchData[0].categories)
-                                console.log(myActiveFilter)
+                    <div className="BotList">
+                        <section>
+                            {
+                                isFiltered ?
+                                    //maps searchData
 
-                                : props.botData.map((bot, idx) =>
-                                    <BotItem key={idx} botData={bot} idx={idx + 1} />
-                                )
-                        }
-                    </section>
+
+                                    filteredSearchData.map((bot, idx) =>
+                                        <BotItem key={idx} botData={bot} idx={idx + 1} />
+                                    )
+
+
+                                    //här är den rätt
+                                    //console.log(myActiveFilter)
+
+
+
+                                    //if no filter is active
+                                    : props.botData.map((bot, idx) =>
+                                        <BotItem key={idx} botData={bot} idx={idx + 1} />
+                                    )
+                            }
+                        </section>
+                    </div>
                 </div>
             </div>
         );

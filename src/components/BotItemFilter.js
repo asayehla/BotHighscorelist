@@ -1,11 +1,17 @@
 import React from 'react';
 
-const picUrl = "https://bobby-testing.s3.eu-north-1.amazonaws.com/bobbybots/img/";
-
-const BotItem = props => {
+const BotItemFilter = props => {
 
   
+//const picUrl = "https://bobby-testing.s3.eu-north-1.amazonaws.com/bobbybots/img/";
+
+console.log(props.bot);
     return (
+<div>
+  {props.bot.name}
+  </div>
+
+/* 
       <article className="BotItem">
         <div>{props.idx}.</div>
         <div><img src={picUrl + props.botData.image} alt={props.botData.name} className="Botimg" /></div>
@@ -13,7 +19,11 @@ const BotItem = props => {
         <div><h2>{props.botData.score}</h2></div>
         <div><input type="checkbox" className="star" /></div>
       </article>
-    );
+
+      */
+    ); 
+  
+  
   }
 
-export default BotItem;
+export default BotItemFilter;
