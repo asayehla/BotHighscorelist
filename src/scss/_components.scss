@@ -1,0 +1,117 @@
+
+%center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*:focus{
+    outline: none;
+    }
+
+
+.Searchbar{
+    width: 95vw;
+    position: relative;
+    background-color: #f4f6fa;
+    text-align: left;
+    margin: 10px 10px 0 10px;
+    height: 40px;
+    border:#792F4F solid 0.8px;
+    border-radius:5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.searchicon {
+    padding: 0 10px 0 20px;
+    }
+
+input[type="text"]{
+    height: 30px;
+    appearance: none;
+    border:none;
+    background-image:none;
+    background-color:transparent;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #C8C8C8;
+    }
+
+    label{
+        color: white;
+        font-size: 0.8rem;
+    }
+    .filterbar{
+        color: #f4f6fa;
+        font-size: 0.8rem;
+    }
+
+    .botbar {
+        background-color: #f4f6fa;
+        font-size: 0.9rem;
+        color: #5D5E5E;
+    }
+
+
+
+.categoryCheck{
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border:#555555 solid 0.8px;
+    border-radius:2px;
+    background-color: #f4f6fa;
+    margin: 0 10px; 
+    padding: 0;
+    }
+
+.categoryCheck:checked{
+    background-image: url(../img/check.svg);
+    }
+
+
+.star{ 
+    appearance: none;
+    background: url(../img/star-inactive.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    margin: 0 8px 0 10px;
+    }
+
+.star:checked{
+    background: url(../img/star-active.svg) no-repeat;
+    }
+    
+.triangledark{
+    appearance: none;
+    background: url(../img/triangle-dark.svg) no-repeat;
+    width: 12px;
+    height: 12px;
+    padding:0;
+    margin: 0;
+    }
+    
+.triangledark:checked{
+    background: url(../img/triangle-dark.svg) no-repeat;
+    transform: rotate(180deg);
+    }
+    
+.trianglelight{
+    appearance: none;
+    background: url(../img/triangle-light.svg) no-repeat;
+    width: 12px;
+    height: 12px;
+    padding:0;
+    margin: 0;
+    }
+    
+.trianglelight:checked{
+    background: url(../img/triangle-light.svg) no-repeat;
+    transform: rotate(180deg);
+    }
+    
+    

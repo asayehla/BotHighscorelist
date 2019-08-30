@@ -1,6 +1,5 @@
 .App {
 max-width: 90w;
-background-color: #bb537f;
 margin: 0;
 padding: 0;
 display: flex;
@@ -20,6 +19,7 @@ align-items: left;
 *:focus{
 outline: none;
 }
+
 .logo {
 align-self: left;
 max-height: 60px;
@@ -27,6 +27,10 @@ padding: 1rem 0;
 }
 
 input[type="text"]{
+min-width: 100px;
+max-width: 210px;
+width: 60vw;
+height: 30px;
 appearance: none;
 border:none;
 background-image:none;
@@ -34,20 +38,28 @@ background-color:transparent;
 -webkit-box-shadow: none;
 -moz-box-shadow: none;
 box-shadow: none;
-min-width: 70vw;
-height: 30px;
 font-family: 'Montserrat', sans-serif;
 font-size: 1.1rem;
 color: #C8C8C8;
 }
-.categorybar{ 
-display: flex;
-flex-direction: column;
-justify-content: flex-end;
-align-items: flex-start;
-margin: 0;
-padding-bottom:5px;
-} 
+
+.Searchbar{
+    width: 95vw;
+    max-width: 375px;
+    min-width: 100px;
+    position: relative;
+    background-color: #f4f6fa;
+    text-align: left;
+    margin: 10px 10px 0 10px;
+    height: 40px;
+    border:#792F4F solid 0.8px;
+    border-radius:5px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+    }
+   
 
 .categoryCheck{
 appearance: none;
@@ -64,40 +76,46 @@ padding: 0;
 background-image: url(./img/check.svg);
 }
 
-.category{ 
-padding:0;
-margin: 0; 
-color: white;
-font-size: 0.8rem;
-display: flex;
-justify-content: center;
-}
+.categorybarlvl1{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px; 
+    } 
+    
+.categorybarlvl2{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding-bottom:5px;
+} 
+.filterbarM{ margin-left:15vw;}
 
-.Searchbar{
-background-color: #f4f6fa;
-text-align: left;
-margin: 10px 10px 0 10px;
-height: 40px;
-border:#792F4F solid 0.8px;
-border-radius:5px;
-display: flex;
-justify-content: left;
-align-items: center;
-
+.categorybarlvl3{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    color: white;
+    font-size: 0.8rem;
 }
-.searchicon {
-padding: 0 10px 0 20px;
+.categorybarlvl4 {
+    display: flex;
+    align-content: space-around;
+    justify-content: right;
 }
-
 .filterbar{
-width: 100vw;
-display: flex;
-justify-content: space-around;
-align-content: center;
-color: #f4f6fa;
-font-size: 0.8rem;
-
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: #f4f6fa;
+    font-size: 0.8rem;
 }
+
 .botbar {
 display: flex;
 justify-content: space-between;
@@ -225,47 +243,52 @@ justify-content: center;
 align-items:center;
 }
 
-input[type="text"]{
-min-width: 70vw;
-}
 
 .Searchbar{
 width: 850px;
+min-width: 50vw;
 border-radius: 3px;
 position: relative;
 top:-30px;
 }
 
-.categorybar{ 
-display:flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-items: center;
-margin: 0;
-padding-bottom:5px;
+.categorybarlvl1{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 10px; 
+    } 
+    
+.categorybarlvl2{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding-bottom:5px;
 } 
-.category{ 
-display: flex;
-flex-direction: row;
-align-self: center;
-justify-content: center;
-padding:0;
-margin: 0; 
-color: white;
-font-size: 0.8rem;
-}
+.filterbarM{ margin-left:15vw;}
 
-.filterbar{
-width: 50vw;
-display: flex;
-justify-content: space-between;
-align-content: center;
+.categorybarlvl3{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: left;
 }
-.filterbar p {
-    padding: 0;
-    margin: 0;
+.categorybarlvl4 {
+    display: flex;
+    align-content: space-around;
+    justify-content: right;
+}
+.filterbar{
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
     color: #f4f6fa;
     font-size: 0.8rem;
+
 }
 .botwhite{
     background: #f4f6fa;
@@ -277,29 +300,29 @@ align-content: center;
     height: 100vw;
 }
 .botbar {
-width: 50vw;
-display: flex;
-justify-content: center;
-align-content: center;
-background-color: #f4f6fa;
-margin: 0;
-padding: 0;
-font-size: 0.9rem;
-color: #5D5E5E;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #f4f6fa;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #5D5E5E;
 }
 
 .BotList {
-width: 100vw;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background: #f4f6fa;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f4f6fa;
 }
 
 section {
-max-width: 850px;
-min-width: 850px;
+    max-width: 850px;
+    min-width: 850px;
 }
 
 .BotItem {

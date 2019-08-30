@@ -1,0 +1,144 @@
+@import './typography';
+@import './components';
+
+//Mobile first
+.App {
+    
+    max-width: 100vw;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+    background-color: #bb537f;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+
+    .App-header {
+        background-color: #f4f6fa;
+        font-size: calc(10px + 1vmin);
+            
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        img{
+            height: 50px;
+            padding: 1rem 1rem 0;
+        }
+    }
+
+    .Searchbar{
+        width: 95vw;
+    }
+
+
+
+
+
+
+/////BOTITEM
+
+.botwhite{
+    background: #f4f6fa;
+}
+    .BotItem {
+        border-top: #82A6AC solid 1px;
+        color:#545859;   
+        display: grid;
+        grid-template-columns: 10vw 22vw 42vw 12vw 12vw;
+        align-items: center;
+        justify-content:flex-start;
+        }
+
+        .BotItem { background:#A0D2DB; }
+        .BotItem:nth-child(odd) { background:#C4E3E9; }
+
+        .BotItem div {
+        padding: 5px 10px;
+        }
+
+        .Botimg {
+        max-width: 18vw;
+        width: 18vw;
+        height: 18vw;
+        border-radius:999rem;
+        border: solid 1px #83ACB3;
+        background: #F3F9FA;
+        margin: 5px 0;
+        }
+
+
+    .desktopcateg {
+    display: none;
+    }
+    
+}
+/*                                           */
+@media only screen and (min-width: 768px)  {
+    .App { 
+        .App-header {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+        .Searchbar{
+            width: 60vw;
+        }
+
+    
+
+        .BotItem {
+            border: #82A6AC solid 1px;
+            border-radius:20px; 
+            color:#545859;    
+            display: grid;
+            grid-template-columns: 2% 10% 74% 2% 1%;
+            align-items: center;
+            justify-content:flex-start;
+            margin: 1rem 0;
+            }
+            
+    
+        .BotItem div {
+            padding: 10px;
+            text-align: left;
+            }
+    
+        .Botimg {
+            max-width: 100%;
+            width: 65px;
+            height: 65px;
+            border-radius:999rem;
+            border: solid 1px #83ACB3;
+            background: #F3F9FA;
+            margin: 5px 0;
+            }
+    
+    
+    
+    
+    
+        .desktopcateg {
+            display: flex;  
+            padding: 0;
+            margin: 0.3rem 0;
+            font-size: 0.8rem;
+            }
+        .numbercontainer{
+            position: relative;
+            right: 35px;
+            }
+        .starcontainer{
+            position: relative;
+            top:-45%;
+            left: 48px;
+            }
+    
+    
+    
+    }
+}

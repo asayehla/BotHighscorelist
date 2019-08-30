@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+//import './App.css';
+
+import './scss/main.scss';
 import Header from './components/layout/Header';
 import Filters from './components/Filters';
 

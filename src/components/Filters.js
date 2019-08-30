@@ -1,46 +1,38 @@
 import React, { useState, useReducer } from 'react';
 import search from '../img/search.svg';
 import BotItem from './BotItem';
-//import BotItemFilter from './BotItemFilter';
 
 const Filters = props => {
     let content = <p className="loading">Loading bots...</p>;
+    let botData = props.botData;
+
     const [filteredSearchData, setFilteredSearchData] = useState([]);
     const [isFiltered, setIsFiltered] = useState(false);
     const [showFilter, setShowFilter] = useState(true);
+    const [theChosenFilter, setTheChosenFilter] = useState(props.botData);
 
     //////////////////Searchbar
     const [searchValue, setSearchValue] = useState("");
-
     async function handleSearchInputChanges(e) {
-        let botData = props.botData;
         setSearchValue(e.target.value);
-
         if (e.target.value !== "") {
             await setFilteredSearchData(
                 botData.filter((botData) => {
                     return botData.name.toLowerCase().match(e.target.value.toLowerCase())
                 })
             )
-            //set isFiltered for rending filteredlist
-            await setIsFiltered(true);
-        } else {
-            setIsFiltered(false);
+            if (filteredSearchData !== 0) {
+                setIsFiltered(true);
+                setTheChosenFilter(filteredSearchData);
+            } else {
+                return
+            }
         }
     }
-
-    //when you press enter 
-    const callSearchFunctionOnEnter = (e) => {
-        e.preventDefault();
-        resetInputField();
-    }
-    const resetInputField = () => {
-        setSearchValue("");
-    }
     /////////////////Filter Categories///
-
     //toggle ShowFilter
     const toggleFilter = (e) => { setShowFilter(!showFilter) }
+    const [categoryFilteredData, setCategoryFilteredData] = useState([]);
 
     //toogle check/uncheck category
     const categoryToggle = (e) => {
@@ -51,6 +43,7 @@ const Filters = props => {
             dispatch({ type: "remove", value: e.target.value })
         }
     }
+    
     //Creating array with the activeFilters
     const [myActiveFilter, dispatch] = useReducer((myActiveFilter, { type, value }) => {
         switch (type) {
@@ -59,38 +52,51 @@ const Filters = props => {
             default: return myActiveFilter;
         }
     }, []);
-
+    
     function handleCategoryChange(e) {
         categoryToggle(e);
         setIsFiltered(true);
+        sortCategory(myActiveFilter);
+        console.log(myActiveFilter);
+        
     }
-
-
+    
     //Filter the bot with categories
-    const [categoryFilteredData, setCategoryFilteredData] = useState([]);
-    let botData = props.botData;
+    
+    const sortCategory = (myActiveFilter) => {
+
+           /*  setCategoryFilteredData(
+             botData.categories.map(x => x)
+            ) */
+                console.log(myActiveFilter);
+                
+        
+    } 
     
     //let theBotsThatNeedToBeDisplayed = botData.categories.map().filter()
-
-
-    ////Favorites
+    ////////////////Favorites
 
     //sort botName
-    const handleSortName = (e) => { }
-    //sort botName
-    const handleSortScore = (e) => { 
-}
+    const [filteredbyName, setFilteredByName] = useState([]);
+    const handleSortName = (e) => {
+        setFilteredByName(botData.sort((a, b) => a.name.localeCompare(b.name)))
+        setTheChosenFilter(filteredbyName);
+        setIsFiltered(true);
+    }
+    //sort botScore
+    const [filteredByScore, setFilteredByScore] = useState([]);
+    const handleSortScore = (e) => {
+        setFilteredByScore(botData.sort((a, b) => b.score - a.score));
+        setTheChosenFilter(filteredByScore);
+        setIsFiltered(true);
+    }
 
     if (!props.isLoading) {
-
         content = (
-
             <div className="container">
                 <div className="Searchbar">
                     <img src={search} alt="search" className="searchicon" />
-                    <form
-                        onSubmit={callSearchFunctionOnEnter}
-                    >
+                    <form>
                         <input type="text" className="searchInput"
                             value={searchValue}
                             onChange={handleSearchInputChanges}
@@ -99,31 +105,30 @@ const Filters = props => {
                     </form>
                 </div>
 
-
-                <div className="categorybar ">
+                <div className="categorybarlvl1">
                     {showFilter ? (
-                        <div>
+                        <div className="categorybarlvl2">
                             <div className="filterbar" onClick={toggleFilter}>
-                                <p>Filter by:{' '} {myActiveFilter.join(' , ')}
-                                </p><p>Hide filter
-                                    <input type="checkbox" className="trianglelight" /></p>
+                                <p className="filterbarM">Filter by:{' '} {myActiveFilter.join(' , ')}</p>
+                                <p>Hide filter <input type="checkbox" className="trianglelight" /></p>
                             </div>
-                            <div className="categorybar">
-                                <div className="category">
+                            <div className="categorybarlvl3">
+                                <div className="categorylvl4">
                                     <input type="checkbox" className="star" value="Favorites"
                                         onChange={handleCategoryChange} />
                                     <label htmlFor="star">Favorites</label>
                                 </div>
                                 {props.categories.map((c, idx) =>
-                                    <div className="category" key={idx} onChange={handleCategoryChange}>
+                                    <div className="categorylvl4" key={idx} onChange={handleCategoryChange}>
                                         <input type="checkbox" className="categoryCheck"
                                             value={c} />
-                                        <label htmlFor="categoryCheck">{c}</label></div>)}
+                                        <label htmlFor="categoryCheck">{c}</label>
+                                    </div>)}
                             </div>
                         </div>
                     ) : (
                             <div className="filterbar" onClick={toggleFilter}>
-                                <p>Active filter: {myActiveFilter.join(' , ')} </p>
+                                <p className="filterbarM">Active filter: {myActiveFilter.join(' , ')} </p>
                                 <p>Show filters{' '}
                                     <input type="checkbox" className="trianglelight" /></p>
                             </div>
@@ -138,26 +143,16 @@ const Filters = props => {
                             <input type="checkbox" className="triangledark" /></p>
                     </div>
 
-
                     <div className="BotList">
                         <section>
                             {
                                 isFiltered ?
-                                    //maps searchData
-
-
-                                    filteredSearchData.map((bot, idx) =>
-                                        <BotItem key={idx} botData={bot} idx={idx + 1} />
-                                    )
-
-
-                                    //här är den rätt
-                                    //console.log(myActiveFilter)
-
-
-
-                                    //if no filter is active
-                                    : props.botData.map((bot, idx) =>
+                                    console.log(myActiveFilter)
+                                    /* 
+                                    {theChosenFilter}.map((bot, idx) =>
+                                    <BotItem key={idx} botData={bot} idx={idx + 1} />)
+                                     */
+                                    : botData.map((bot, idx) =>
                                         <BotItem key={idx} botData={bot} idx={idx + 1} />
                                     )
                             }
