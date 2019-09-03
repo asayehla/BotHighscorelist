@@ -1,9 +1,11 @@
-import React from 'react';
+import React,  {useState} from 'react';
 
 
 const BotItem = props => {
   const categories = props.botData.categories;
   const picUrl = "https://bobby-testing.s3.eu-north-1.amazonaws.com/bobbybots/img/";
+
+  
 
   return (
     <article className="botItem">
@@ -15,7 +17,10 @@ const BotItem = props => {
         </p>
       </div>
       <div><h2>{props.botData.score}</h2></div>
-      <div className="starcontainer"><input type="checkbox" className="star" /></div>
+      <div className="starcontainer">
+        <input type="checkbox" className="star" 
+        //onChange={props.toggleCheckbox} 
+         /></div>
     </article>
   );
 }

@@ -49,13 +49,14 @@ const Filters = props => {
     })
         .filter((bot) => {
             const isItInMyActiveFilter = (el) => {
+
                 /*  for (var i = 0; i < myActiveFilter.length; i++) { 
                     return bot.includes(myActiveFilter[i]) 
                 }  */ 
-                
+
                 //work with one category   
                 return el.includes(myActiveFilter) 
-                         
+                
             }
 
             return myActiveFilter ? 
