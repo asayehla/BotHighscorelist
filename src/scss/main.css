@@ -1,0 +1,454 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  max-width: 100vw;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: #792f4f;
+  padding: 0.6rem 1rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 0.9rem;
+  color: #575C5D;
+  margin: 0;
+  padding: 0;
+}
+
+h5 {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+.searchbar {
+  width: 95vw;
+  position: relative;
+  background-color: #f4f6fa;
+  text-align: left;
+  margin: 10px 10px 0 10px;
+  height: 40px;
+  border: #792F4F solid 0.8px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.searchicon {
+  padding: 0 10px 0 20px;
+}
+
+input[type="text"] {
+  height: 30px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  color: #C8C8C8;
+}
+
+label {
+  color: white;
+  font-size: 0.8rem;
+}
+
+.filterbar {
+  color: #f4f6fa;
+  font-size: 0.8rem;
+}
+
+.botbar {
+  background-color: #f4f6fa;
+  font-size: 0.9rem;
+  color: #5D5E5E;
+}
+
+.categoryCheck {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 25px;
+  height: 25px;
+  border: #555555 solid 0.8px;
+  border-radius: 2px;
+  background-color: #f4f6fa;
+  margin: 0 10px;
+  padding: 0;
+}
+
+.categoryCheck:checked {
+  background-image: url(../img/check.svg);
+}
+
+.star {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url(../img/star-inactive.svg) no-repeat;
+  width: 30px;
+  height: 30px;
+  margin: 0 8px 0 10px;
+}
+
+.star:checked {
+  background: url(../img/star-active.svg) no-repeat;
+}
+
+.triangledark {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url(../img/triangle-dark.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.triangledark:checked {
+  background: url(../img/triangle-dark.svg) no-repeat;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.trianglelight {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: url(../img/triangle-light.svg) no-repeat;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+.trianglelight:checked {
+  background: url(../img/triangle-light.svg) no-repeat;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.App {
+  max-width: 100vw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #bb537f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+}
+
+.App .App-header {
+  background-color: #f4f6fa;
+  font-size: calc(10px + 1vmin);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.App .App-header img {
+  height: 50px;
+  padding: 1rem 1rem 0;
+}
+
+.App .container .searchbar {
+  width: 95vw;
+}
+
+.App .container .category1 .category2 .filterbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .container .category1 .category2 .filterbar .activef {
+  padding: 0 15px;
+}
+
+.App .container .category1 .category2 .filterbar .hidef {
+  padding: 0 15px;
+}
+
+.App .container .category1 .category2 .category3 .category4 label {
+  position: relative;
+  top: -8px;
+}
+
+.App .container .botwhite {
+  background: #f4f6fa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.App .container .botwhite .botbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.App .container .botwhite .botbar p {
+  padding: 0 15px;
+}
+
+.App .container .botwhite .botList section .botItem {
+  border-top: #82A6AC solid 1px;
+  color: #545859;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 10vw 22vw 42vw 12vw 12vw;
+      grid-template-columns: 10vw 22vw 42vw 12vw 12vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.App .container .botwhite .botList section .botItem {
+  background: #A0D2DB;
+}
+
+.App .container .botwhite .botList section .botItem:nth-child(odd) {
+  background: #C4E3E9;
+}
+
+.App .container .botwhite .botList section .botItem div {
+  padding: 5px 10px;
+}
+
+.App .container .botwhite .botList section .botimg {
+  max-width: 18vw;
+  width: 18vw;
+  height: 18vw;
+  border-radius: 999rem;
+  border: solid 1px #83ACB3;
+  background: #F3F9FA;
+  margin: 5px 0;
+}
+
+.App .container .botwhite .botList section .desktopcateg {
+  display: none;
+}
+
+/*                                           */
+@media only screen and (min-width: 768px) {
+  .App .App-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    height: 140px;
+  }
+  .App .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .App .container .searchbar {
+    width: 850px;
+    position: relative;
+    top: -30px;
+  }
+  .App .container .category1 .category2 .filterbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 850px;
+  }
+  .App .container .category1 .category2 .filterbar p {
+    margin: 0 0.5rem 0.5rem;
+  }
+  .App .container .category1 .category2 .category3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: initial;
+        -ms-flex-positive: initial;
+            flex-grow: initial;
+    width: 850px;
+  }
+  .App .container .category1 .category2 .category3 .category4 {
+    width: 450px;
+  }
+  .App .container .botwhite {
+    background: #f4f6fa;
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    height: 100vw;
+  }
+  .App .container .botwhite .botbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    background-color: #f4f6fa;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #5D5E5E;
+  }
+  .App .container .botwhite .botbar p {
+    margin: 20px 310px 0;
+  }
+  .App .container .botwhite .botList {
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .App .container .botwhite .botList section {
+    max-width: 850px;
+    min-width: 850px;
+  }
+  .App .container .botwhite .botList section .botItem {
+    border: #82A6AC solid 1px;
+    border-radius: 20px;
+    color: #545859;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 2% 10% 74% 2% 1%;
+        grid-template-columns: 2% 10% 74% 2% 1%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin: 1rem 0;
+  }
+  .App .container .botwhite .botList section .botItem .numbercontainer {
+    position: relative;
+    right: 35px;
+  }
+  .App .container .botwhite .botList section .botItem .starcontainer {
+    position: relative;
+    top: -45%;
+    left: 63px;
+  }
+  .App .container .botwhite .botList section .botItem div .botimg {
+    max-width: 100%;
+    width: 65px;
+    height: 65px;
+    border-radius: 999rem;
+    border: solid 1px #83ACB3;
+    background: #F3F9FA;
+    margin: 5px 0;
+  }
+  .App .container .botwhite .botList section .botItem div .desktopcateg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    margin: 0.3rem 0;
+    font-size: 0.8rem;
+  }
+}
+/*# sourceMappingURL=main.css.map */

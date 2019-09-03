@@ -6,9 +6,9 @@ const BotItem = props => {
   const picUrl = "https://bobby-testing.s3.eu-north-1.amazonaws.com/bobbybots/img/";
 
   return (
-    <article className="BotItem">
+    <article className="botItem">
       <div className="numbercontainer">{props.idx}.</div>
-      <div><img src={picUrl + props.botData.image} alt={props.botData.name} className="Botimg" /></div>
+      <div><img src={picUrl + props.botData.image} alt={props.botData.name} className="botimg" /></div>
       <div><h2>{props.botData.name}</h2>
         <p className="desktopcateg">
           {categories.join(' , ')}
