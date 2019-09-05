@@ -10,6 +10,7 @@ const Filters = props => {
     const [searchValue, setSearchValue] = useState("");
     async function handleSearchInputChanges(e) {
         setSearchValue(e.target.value);
+
     }
 
     //toggle to show categorys or not
@@ -38,7 +39,7 @@ const Filters = props => {
     //sort botName
     const [filteredbyName, setFilteredByName] = useState(false);
     const handleSortName = (e) => { setFilteredByName(!filteredbyName) }
-    //console.log(filteredbyName)
+    
     //sort botScore
     const [filteredByScore, setFilteredByScore] = useState(false);
     const handleSortScore = (e) => { setFilteredByScore(!filteredByScore) }
@@ -47,25 +48,15 @@ const Filters = props => {
     const listBotsThatRenders = botData.filter((bot) => {
         return searchValue ? bot.name.toLowerCase().match(searchValue) : true
     })
+
+        //filter categories
         .filter((bot) => {
-            const isItInMyActiveFilter = (el) => {
-
-                /*  for (var i = 0; i < myActiveFilter.length; i++) { 
-                    return bot.includes(myActiveFilter[i]) 
-                }  */ 
-
-                //work with one category   
-                return el.includes(myActiveFilter) 
-                
-            }
-
-            return myActiveFilter ? 
-                                
-                bot.categories.some(isItInMyActiveFilter) 
-                :
-                //true
-                console.log('här är du aldrig');
+            return myActiveFilter.length !== 0 ?
+                bot.categories.some(value => {
+                    return myActiveFilter.includes(value)
+                }) : true
         })
+
 
         //topscore 
         .filter((bot) => {
@@ -80,12 +71,15 @@ const Filters = props => {
             return filteredbyName ? botData.sort((a, b) => a.name.localeCompare(b.name)) : true
         })
 
-        //z-a
-        //.filter((bot) => { ****** ? botData.sort((a,b) => b.name.localeCompare(a.name))  :true    })
+    //z-a
+    //.filter((bot) => { ****** ? botData.sort((a,b) => b.name.localeCompare(a.name))  :true    })
 
     //filterbyfavorite
     //.filter((bot) => { ****** ?                     }) 
 
+   /*  console.log(listBotsThatRenders);
+    console.log(myActiveFilter);
+ */
 
     if (!props.isLoading) {
         content = (

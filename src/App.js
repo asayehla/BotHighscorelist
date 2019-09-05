@@ -60,7 +60,7 @@ const App = props => {
       />
       {isLoading ? <p className="loading">...loading</p> : <div>{data.id}</div>}
 
-     {/*  {hasError ? console.log({ hasError }) : console.log(hasError)} */}
+     {hasError ? console.log({ hasError }) : true}
     </div>
 
   )
