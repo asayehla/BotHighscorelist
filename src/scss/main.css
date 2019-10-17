@@ -27,8 +27,8 @@ h5 {
   font-family: 'Nunito Sans', sans-serif;
 }
 
-*:focus {
-  outline: none;
+p {
+  margin: 0rem;
 }
 
 .searchbar {
@@ -37,7 +37,7 @@ h5 {
   background-color: #f4f6fa;
   text-align: left;
   margin: 10px 10px 0 10px;
-  height: 40px;
+  height: 50px;
   border: #792F4F solid 0.8px;
   border-radius: 5px;
   display: -webkit-box;
@@ -56,7 +56,8 @@ h5 {
 }
 
 input[type="text"] {
-  height: 30px;
+  height: 2rem;
+  width: 100%;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -66,8 +67,8 @@ input[type="text"] {
   -webkit-box-shadow: none;
   box-shadow: none;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.1rem;
-  color: #C8C8C8;
+  font-size: 1.3rem;
+  color: #3b3b3b;
 }
 
 label {
@@ -80,7 +81,7 @@ label {
   font-size: 0.8rem;
 }
 
-.botbar {
+.botbar label {
   background-color: #f4f6fa;
   font-size: 0.9rem;
   color: #5D5E5E;
@@ -90,10 +91,10 @@ label {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 24px;
+  height: 24px;
   border: #555555 solid 0.8px;
-  border-radius: 2px;
+  border-radius: 3px;
   background-color: #f4f6fa;
   margin: 0 10px;
   padding: 0;
@@ -110,28 +111,10 @@ label {
   background: url(../img/star-inactive.svg) no-repeat;
   width: 30px;
   height: 30px;
-  margin: 0 8px 0 10px;
 }
 
 .star:checked {
   background: url(../img/star-active.svg) no-repeat;
-}
-
-.triangledark {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  background: url(../img/triangle-dark.svg) no-repeat;
-  width: 12px;
-  height: 12px;
-  padding: 0;
-  margin: 0;
-}
-
-.triangledark:checked {
-  background: url(../img/triangle-dark.svg) no-repeat;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
 }
 
 .trianglelight {
@@ -199,6 +182,10 @@ label {
   width: 95vw;
 }
 
+.App .container .searchbar form {
+  width: 100%;
+}
+
 .App .container .category1 .category2 .filterbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -206,6 +193,7 @@ label {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  padding: 0.8rem 0;
 }
 
 .App .container .category1 .category2 .filterbar .activef {
@@ -216,9 +204,31 @@ label {
   padding: 0 15px;
 }
 
-.App .container .category1 .category2 .category3 .category4 label {
+.App .container .category1 .category2 .category3 label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0.7rem 0.8rem;
+}
+
+.App .container .category1 .category2 .category3 label label p {
+  margin: 0;
+}
+
+.App .container .category1 .category2 .category3 label .star {
   position: relative;
-  top: -8px;
+  left: 9px;
+  margin: 0;
+}
+
+.App .container .category1 .category2 .category3 label .favorite {
+  position: relative;
+  left: 15px;
+  top: 5px;
 }
 
 .App .container .botwhite {
@@ -245,8 +255,8 @@ label {
           justify-content: space-between;
 }
 
-.App .container .botwhite .botbar p {
-  padding: 0 15px;
+.App .container .botwhite .botbar label {
+  padding: 1.1rem 2.9rem 0.4rem;
 }
 
 .App .container .botwhite .botList section .botItem {
@@ -342,16 +352,14 @@ label {
     margin: 0 0.5rem 0.5rem;
   }
   .App .container .category1 .category2 .category3 {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: initial;
-        -ms-flex-positive: initial;
-            flex-grow: initial;
-    width: 850px;
+    display: -ms-grid;
+    display: grid;
+    grid: 30px / auto auto auto;
+    grid-gap: 10px;
+    padding: 0 10px 20px;
   }
-  .App .container .category1 .category2 .category3 .category4 {
-    width: 450px;
+  .App .container .category1 .category2 .category3 label {
+    margin: 0rem 0rem;
   }
   .App .container .botwhite {
     background: #f4f6fa;
@@ -371,22 +379,13 @@ label {
     height: 100vw;
   }
   .App .container .botwhite .botbar {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -ms-flex-line-pack: center;
-        align-content: center;
+    display: -ms-grid;
+    display: grid;
+    grid: 30px/ auto auto;
     background-color: #f4f6fa;
-    margin: 0;
-    padding: 0;
+    padding: 0 10rem;
     font-size: 0.9rem;
     color: #5D5E5E;
-  }
-  .App .container .botwhite .botbar p {
-    margin: 20px 310px 0;
   }
   .App .container .botwhite .botList {
     width: 100vw;

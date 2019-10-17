@@ -1,6 +1,8 @@
 import React, { useState, useReducer } from 'react';
 import search from '../img/search.svg';
 import BotItem from './BotItem';
+import { useLocalState } from './hooks';
+import triangleDark from '../img/triangle-dark.svg'
 
 const Filters = props => {
     let content = <p className="loading">Loading bots...</p>;
@@ -8,10 +10,7 @@ const Filters = props => {
 
     ////Searchbar
     const [searchValue, setSearchValue] = useState("");
-    async function handleSearchInputChanges(e) {
-        setSearchValue(e.target.value);
-
-    }
+    function handleSearchInputChanges(e) { setSearchValue(e.target.value); }
 
     //toggle to show categorys or not
     const [showFilter, setShowFilter] = useState(true);
@@ -26,9 +25,12 @@ const Filters = props => {
     //Creating array with the activeCategories
     const [myActiveFilter, dispatch] = useReducer((myActiveFilter, { type, value }) => {
         switch (type) {
-            case "add": return [...myActiveFilter, value]
-            case "remove": return myActiveFilter.filter((index) => index !== value);
-            default: return myActiveFilter;
+            case "add":
+                return [...myActiveFilter, value]
+            case "remove":
+                return myActiveFilter.filter((index) => index !== value);
+            default:
+                return myActiveFilter;
         }
     }, []);
 
@@ -36,12 +38,10 @@ const Filters = props => {
         categoryToggle(e);
     }
 
-    //sort botName
-    const [filteredbyName, setFilteredByName] = useState(false);
-    const handleSortName = (e) => { setFilteredByName(!filteredbyName) }
-    
+    const [isFavorite, setFavoriteList] = useLocalState([]);
+
     //sort botScore
-    const [filteredByScore, setFilteredByScore] = useState(false);
+    const [filteredByScore, setFilteredByScore] = useState(true);
     const handleSortScore = (e) => { setFilteredByScore(!filteredByScore) }
 
     //renders if serchvalue is true.
@@ -57,29 +57,28 @@ const Filters = props => {
                 }) : true
         })
 
+    //sort botName
+    const [filteredbyName, setFilteredByName] = useState(false);
+    const handleSortName = (e) => {
+        listBotsThatRenders.sort((a, b) => a.name.localeCompare(b.name));
+        setFilteredByName(!filteredbyName)
+        console.log(filteredbyName);
 
-        //topscore 
-        .filter((bot) => {
-            return filteredByScore ? botData.sort((a, b) => b.score - a.score) : true
-        })
+    }
 
-        //lowscore
-        //.filter((bot) => { ****** ? botData.sort((a,b) => a.score - b.score):true    })
-
-        //a-z 
-        .filter((bot) => {
-            return filteredbyName ? botData.sort((a, b) => a.name.localeCompare(b.name)) : true
-        })
+    //a-z 
 
     //z-a
-    //.filter((bot) => { ****** ? botData.sort((a,b) => b.name.localeCompare(a.name))  :true    })
+    //filteredbyName  botData.sort((a,b) => b.name.localeCompare(a.name))  
+
+    //topscore 
+    //filteredByScore ? botData.sort((a, b) => b.score - a.score)
+
+    //lowscore
+    //!filteredByScore ? botData.sort((a,b) => a.score - b.score)  
 
     //filterbyfavorite
-    //.filter((bot) => { ****** ?                     }) 
-
-   /*  console.log(listBotsThatRenders);
-    console.log(myActiveFilter);
- */
+    // ****** ?       
 
     if (!props.isLoading) {
         content = (
@@ -103,25 +102,28 @@ const Filters = props => {
                                 <p className="hidef">Hide filter <input type="checkbox" className="trianglelight" /></p>
                             </div>
                             <div className="category3">
-                                <div className="category4">
-                                    <input type="checkbox" className="star" value="Favorites"
-                                        onChange={handleCategoryChange} />
-                                    <label htmlFor="star">Favorites</label>
-                                </div>
+                                <label onChange={handleCategoryChange}>
+                                    <input type="checkbox" className="star" value="Favorites" />
+                                    <p className="favorite">Favorites</p>
+                                </label>
                                 {props.categories.map((c, idx) =>
-                                    <div className="category4" key={idx} onChange={handleCategoryChange}>
-                                        <input type="checkbox" className="categoryCheck"
-                                            value={c} />
-                                        <label htmlFor="categoryCheck">{c}</label>
-                                    </div>)}
+                                    <label key={idx} onChange={handleCategoryChange}>
+                                        <input type="checkbox" className="categoryCheck" value={c} />
+                                        <p>{c}</p>
+                                    </label>
+                                )}
+
                             </div>
                         </div>
                     ) : (
                             <div className="category2">
                                 <div className="filterbar" onClick={toggleFilter}>
-                                    <p className="activef">Active filter: {myActiveFilter.join(' , ')} </p>
-                                    <p className="hidef">Show filters{' '}
-                                        <input type="checkbox" className="trianglelight" /></p>
+                                    <label className="activef"> Active filter:
+                                        {myActiveFilter.join(' , ')}
+                                    </label>
+                                    <label className="hidef"> Show filters {' '}
+                                        <input type="checkbox" className="trianglelight" />
+                                    </label>
                                 </div>
                             </div>
                         )}
@@ -129,10 +131,12 @@ const Filters = props => {
 
                 <div className="botwhite">
                     <div className="botbar">
-                        <p onChange={handleSortName}>Name{' '}
-                            <input type="checkbox" className="triangledark" /></p>
-                        <p onChange={handleSortScore}>Score{' '}
-                            <input type="checkbox" className="triangledark" /></p>
+                        <label onClick={handleSortName}>Name {' '}
+                            <img src={triangleDark} alt="Name" />
+                        </label>
+                        <label onClick={handleSortScore}>Score {' '}
+                            <img src={triangleDark} alt="Score" />
+                        </label>
                     </div>
 
                     <div className="botList">

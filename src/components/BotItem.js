@@ -1,11 +1,14 @@
-import React,  {useState} from 'react';
-
+import React from 'react';
+import {useLocalState} from './hooks';
 
 const BotItem = props => {
   const categories = props.botData.categories;
   const picUrl = "https://bobby-testing.s3.eu-north-1.amazonaws.com/bobbybots/img/";
 
   
+  function toggleFavorite(e) {
+    //console.log(e.target);
+}
 
   return (
     <article className="botItem">
@@ -19,7 +22,8 @@ const BotItem = props => {
       <div><h2>{props.botData.score}</h2></div>
       <div className="starcontainer">
         <input type="checkbox" className="star" 
-        //onChange={props.toggleCheckbox} 
+        onChange={toggleFavorite(props.id)} 
+        //active={isFavorite} 
          /></div>
     </article>
   );

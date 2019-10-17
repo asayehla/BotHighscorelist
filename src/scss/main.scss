@@ -21,42 +21,54 @@
         justify-content: flex-start;
         align-items: flex-start;
 
-        img{
+        img {
             height: 50px;
             padding: 1rem 1rem 0;
         }
     }
 
     .container {
-        .searchbar{
+        .searchbar {
             width: 95vw;
+            form {
+                width: 100%;
+            }
         }
 
-        .category1{
-            .category2{
+        .category1 {
+            .category2 {
                 
-                .filterbar{                        
+                .filterbar {                        
                     display: flex;
                     justify-content: space-between;
-                    
-                    .activef{
+                    padding: 0.8rem 0;
+                    .activef {
                        padding: 0 15px;
                     }
-                    .hidef{padding: 0 15px;  }
+                    .hidef {padding: 0 15px;  }
                 }
-                .category3{
-                    .category4{
-                        
-                        label {
-                            position: relative;
-                            top:-8px;  
+                .category3 {
+                    label {
+                        display: flex;
+                        flex-direction: row;
+                        margin: 0.7rem 0.8rem;
+                        label p {
+                            margin: 0;                 
                         }
+                        .star{
+                            position: relative;
+                            left: 9px;
+                            margin: 0;
+                        }
+                        .favorite{ 
+                            position: relative;
+                            left: 15px;
+                            top:5px;
+                        }
+
                     }
                 }
-            
-            
             }
-
         }
 
 /////BOTITEM
@@ -68,9 +80,8 @@
         .botbar{
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
-            p { padding: 0 15px;}  
-
+            justify-content: space-between;            
+            label { padding: 1.1rem 2.9rem 0.4rem;}  
         }
         .botList{
             section {
@@ -139,17 +150,16 @@
 
                 }
                 .category3{
-                    display: flex;
-                    flex-grow:initial;
-                    width: 850px;
-                    .category4 {
-                        width: 450px;
-                        
+                    display: grid;                   
+                    grid: 30px / auto auto auto;
+                    grid-gap: 10px;
+                    padding: 0 10px 20px; 
+
+                    label {
+                        margin: 0rem 0rem;
                     }
                 }
-
             }
-
         }
     
 /////BOTITEM
@@ -164,18 +174,12 @@
         height: 100vw;
 
         .botbar{
-            display: flex;
-            justify-content: center;
-            align-content: center;
+            display: grid;
+            grid: 30px/ auto auto;
             background-color: #f4f6fa;
-            margin: 0;
-            padding: 0;
+            padding: 0 10rem;
             font-size: 0.9rem;
             color: #5D5E5E;
-            p {
-                margin: 20px 310px 0;
-            }
-
         }
         .botList{
             width: 100vw;

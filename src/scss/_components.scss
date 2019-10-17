@@ -1,22 +1,11 @@
 
-%center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-*:focus{
-    outline: none;
-    }
-
-
 .searchbar{
     width: 95vw;
     position: relative;
     background-color: #f4f6fa;
     text-align: left;
     margin: 10px 10px 0 10px;
-    height: 40px;
+    height: 50px;
     border:#792F4F solid 0.8px;
     border-radius:5px;
     display: flex;
@@ -28,7 +17,8 @@
     }
 
 input[type="text"]{
-    height: 30px;
+    height: 2rem;
+    width: 100%;
     appearance: none;
     border:none;
     background-image:none;
@@ -37,8 +27,8 @@ input[type="text"]{
     -moz-box-shadow: none;
     box-shadow: none;
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    color: #C8C8C8;
+    font-size: 1.3rem;
+    color: #3b3b3b;
     }
 
     label{
@@ -50,20 +40,18 @@ input[type="text"]{
         font-size: 0.8rem;
     }
 
-    .botbar {
+    .botbar label{
         background-color: #f4f6fa;
         font-size: 0.9rem;
         color: #5D5E5E;
     }
 
-
-
 .categoryCheck{
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     border:#555555 solid 0.8px;
-    border-radius:2px;
+    border-radius:3px;
     background-color: #f4f6fa;
     margin: 0 10px; 
     padding: 0;
@@ -79,26 +67,12 @@ input[type="text"]{
     background: url(../img/star-inactive.svg) no-repeat;
     width: 30px;
     height: 30px;
-    margin: 0 8px 0 10px;
     }
 
 .star:checked{
     background: url(../img/star-active.svg) no-repeat;
     }
     
-.triangledark{
-    appearance: none;
-    background: url(../img/triangle-dark.svg) no-repeat;
-    width: 12px;
-    height: 12px;
-    padding:0;
-    margin: 0;
-    }
-    
-.triangledark:checked{
-    background: url(../img/triangle-dark.svg) no-repeat;
-    transform: rotate(180deg);
-    }
     
 .trianglelight{
     appearance: none;

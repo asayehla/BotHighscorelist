@@ -36,7 +36,7 @@ const App = props => {
   var catTemp = [];
   function sortOutCategories(res) {
     if (res) {
-      res.map((bot, idx) => {
+      res.map((bot, idx) => {//for each-fooloop
         for (var i = 0; i < res[idx].categories.length; i++) {
           catTemp.push(res[idx].categories[i]);
         }
@@ -58,7 +58,8 @@ const App = props => {
         isLoading={isLoading}
         categories={categories}
       />
-      {isLoading ? <p className="loading">...loading</p> : <div>{data.id}</div>}
+      {/*   
+      {isLoading && <p className="loading">...loading</p> } */}
 
      {hasError ? console.log({ hasError }) : true}
     </div>
